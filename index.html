@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="NioByte.Net: portfolio of Luban Mahi Ninio, network enthusiast and IT graduate in Sydney.">
-<title>NioByte.Net</title>
+<meta name="description" content="NioByte.dev: portfolio of Luban Mahi Ninio, network enthusiast and IT graduate in Sydney.">
+<title>NioByte.dev</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,600;112..125,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
@@ -115,6 +115,26 @@ a.repo:hover{border-color:var(--accent)}
 .meta .go{margin-left:auto;color:var(--accent)}
 @media (max-width:760px){.gh{grid-template-columns:1fr}}
 
+/* Interactive terminal */
+.term{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.term .bar{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid var(--line);font:12px var(--mono);color:var(--muted)}
+.term .bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.term .bar .hint{margin-left:auto}
+.tout{height:340px;overflow-y:auto;padding:18px 20px 6px;font:14px/1.7 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere}
+.tout .cmd{color:var(--ink)}
+.tout .cmd b{color:var(--accent);font-weight:600}
+.tout .res{color:var(--muted);margin-bottom:10px}
+.tout .res .hl{color:var(--accent)} .tout .res .am{color:var(--led)} .tout .res .okc{color:var(--ok)}
+.tout .res a{color:var(--accent)}
+.tin{display:flex;align-items:center;gap:8px;padding:12px 20px 16px;border-top:1px dashed var(--line);font:14px var(--mono)}
+.tin label{color:var(--accent);font-weight:600;white-space:nowrap}
+.tin input{flex:1;min-width:0;background:transparent;border:0;color:var(--ink);font:14px var(--mono);padding:6px 0;outline:none;caret-color:var(--accent)}
+.tin:focus-within{background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.quick button{font:13px var(--mono);padding:6px 11px;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.quick button:hover{border-color:var(--accent);color:var(--accent)}
+@media (max-width:560px){.tout{height:300px;font-size:13px}}
+
 /* Contact */
 .contact pre .ok{color:var(--ok)}
 .contact .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:0 20px 20px}
@@ -126,14 +146,14 @@ footer{font:12px var(--mono);color:var(--muted);display:flex;justify-content:spa
 
 <main class="wrap">
   <nav>
-    <a class="brand" href="#top"><span class="leds"><i></i><i></i><i></i></span>NioByte.Net</a>
-    <ul><li><a href="#about">show version</a></li><li><a href="#path">traceroute</a></li><li><a href="#stack">stack</a></li><li><a href="#lab">github</a></li><li><a href="#contact">ping</a></li></ul>
+    <a class="brand" href="#top"><span class="leds"><i></i><i></i><i></i></span>NioByte.dev</a>
+    <ul><li><a href="#about">show version</a></li><li><a href="#console">console</a></li><li><a href="#path">traceroute</a></li><li><a href="#stack">stack</a></li><li><a href="#lab">github</a></li><li><a href="#contact">ping</a></li></ul>
   </nav>
 
   <header class="hero" id="top">
     <div class="hero-title">
       <p class="prompt"><b>niobyte@syd-core-01</b>:~$ whoami</p>
-      <h1>NioByte<span class="tld">.Net</span></h1>
+      <h1>NioByte<span class="tld">.dev</span></h1>
     </div>
     <div class="hero-copy">
       <p class="who"><strong>Luban Mahi Ninio</strong>. Network enthusiast and IT graduate in Sydney. I like knowing how packets get from A to B, and fixing it when they don't.</p>
@@ -158,13 +178,33 @@ footer{font:12px var(--mono);color:var(--muted);display:flex;justify-content:spa
     </div>
     <div class="console">
       <div class="bar"><i></i><i></i><i></i>&nbsp; console 9600 8N1</div>
-<pre><span class="k">Hostname       :</span> <span class="hl">NioByte.Net</span>
+<pre><span class="k">Hostname       :</span> <span class="hl">NioByte.dev</span>
 <span class="k">Operator       :</span> <span class="v">Luban Mahi Ninio</span>
 <span class="k">Location       :</span> <span class="v">Sydney, NSW (AEST)</span>
 <span class="k">Firmware       :</span> <span class="v">B.IT, CQUniversity</span>
 <span class="k">Uptime         :</span> <span class="v">always learning</span>
 <span class="k">Interfaces     :</span> <span class="v">3 up, 0 down</span>
 <span class="k">Looking for    :</span> <span class="am">network / IT support roles</span></pre>
+    </div>
+  </section>
+
+  <section id="console">
+    <p class="prompt"><b>niobyte#</b> terminal</p>
+    <h2>Try the console</h2>
+    <div class="term">
+      <div class="bar"><i></i><i></i><i></i>&nbsp; ssh guest@niobyte.dev<span class="hint">type <b>help</b></span></div>
+      <div class="tout" id="tout" aria-live="polite"></div>
+      <form class="tin" id="tform" autocomplete="off">
+        <label for="tcmd">guest@niobyte:~$</label>
+        <input id="tcmd" name="tcmd" type="text" spellcheck="false" autocapitalize="off" placeholder="help" aria-label="Terminal command">
+      </form>
+    </div>
+    <div class="quick" aria-label="Quick commands">
+      <button type="button" data-c="whoami">whoami</button>
+      <button type="button" data-c="show ip interface brief">show ip int brief</button>
+      <button type="button" data-c="traceroute career">traceroute career</button>
+      <button type="button" data-c="show skills">show skills</button>
+      <button type="button" data-c="contact">contact</button>
     </div>
   </section>
 
@@ -231,8 +271,8 @@ footer{font:12px var(--mono);color:var(--muted);display:flex;justify-content:spa
     <p class="prompt"><b>niobyte#</b> ping luban</p>
     <h2>Open a connection</h2>
     <div class="console contact">
-      <div class="bar"><i></i><i></i><i></i>&nbsp; ping NioByte.Net</div>
-<pre>PING NioByte.Net: 56 data bytes
+      <div class="bar"><i></i><i></i><i></i>&nbsp; ping NioByte.dev</div>
+<pre>PING NioByte.dev: 56 data bytes
 64 bytes from luban: icmp_seq=0 ttl=64 time=<span class="hl">fast</span>
 64 bytes from luban: icmp_seq=1 ttl=64 time=<span class="hl">friendly</span>
 --- 2 packets transmitted, 2 received, <span class="ok">0% packet loss</span> ---</pre>
@@ -245,7 +285,7 @@ footer{font:12px var(--mono);color:var(--muted);display:flex;justify-content:spa
     </div>
   </section>
 
-  <footer><span>© 2026 NioByte.Net · Luban Mahi Ninio</span><span>AS-SYD · 0% packet loss</span></footer>
+  <footer><span>© 2026 NioByte.dev · Luban Mahi Ninio</span><span>niobyte.dev · AS-SYD · 0% packet loss</span></footer>
 </main>
 
 <script>
@@ -300,6 +340,49 @@ document.getElementById('copy').addEventListener('click',function(){
   mq.addEventListener&&mq.addEventListener('change',re);
   new MutationObserver(re).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
   if(still)draw();else tick();
+})();
+(function(){
+  var out=document.getElementById('tout'),form=document.getElementById('tform'),inp=document.getElementById('tcmd');
+  var hist=[],hi=0;
+  var C={
+    help:'Available commands:\n  <span class="hl">whoami</span>                    who runs this network\n  <span class="hl">show version</span>              system info\n  <span class="hl">show ip interface brief</span>   what I work on\n  <span class="hl">traceroute career</span>         my path so far\n  <span class="hl">show skills</span>               skills by OSI layer\n  <span class="hl">github</span>                    my GitHub\n  <span class="hl">ping luban</span>                check if I\'m reachable\n  <span class="hl">contact</span>                   how to reach me\n  <span class="hl">clear</span>                     clear the screen',
+    whoami:'Luban Mahi Ninio, aka <span class="hl">NioByte</span>\nNetwork enthusiast and IT graduate (CQUniversity, Sydney).\nFocus: networking, cybersecurity, enterprise systems.',
+    'show version':'NioByte OS, Version 2026.10 (Sydney)\nOperator    : Luban Mahi Ninio\nFirmware    : Bachelor of IT, CQUniversity\nDay job     : Duty Manager, Avis Budget Group\nUptime      : always learning\nSeeking     : <span class="am">network / IT support roles</span>',
+    'show ip interface brief':'Interface   Description            Status   Protocol\neth0        networking             <span class="okc">up</span>       <span class="okc">up</span>\neth1        cybersecurity          <span class="okc">up</span>       <span class="okc">up</span>\neth2        enterprise systems     <span class="okc">up</span>       <span class="okc">up</span>\nlo0         people skills          <span class="okc">up</span>       <span class="okc">up</span>',
+    'traceroute career':'traceroute to network-engineer, 30 hops max\n 1  star-tech.bd          online support\n 2  cquniversity.syd      bachelor of IT\n 3  avis.north-sydney     rental / customer support\n 4  avis.north-sydney     duty manager  <span class="am">(current)</span>\n 5  network-engineer      <span class="okc">* * * routing in progress</span>',
+    'show skills':'L7  DNS, DHCP, HTTP/S, help desk\nL4  TCP/UDP, ports, firewall rules\nL3  IPv4 subnetting, static routing, OSPF\nL2  VLANs, switching, STP, ARP\nL1  cabling, Wi-Fi, hardware setup\nL8  team lead, escalations, clear explaining',
+    github:'github0 is up, line protocol is up\n  handle: <a href="https://github.com/LM-Ninio001" target="_blank" rel="noopener">@LM-Ninio001</a>',
+    'ping luban':'PING luban (niobyte.dev): 56 data bytes\n64 bytes from luban: icmp_seq=0 ttl=64 time=fast\n64 bytes from luban: icmp_seq=1 ttl=64 time=friendly\n--- <span class="okc">0% packet loss</span> ---',
+    contact:'email    : <span class="hl">lubanmahi08@gmail.com</span>\ngithub   : <a href="https://github.com/LM-Ninio001" target="_blank" rel="noopener">github.com/LM-Ninio001</a>\nlinkedin : Luban Mahi Ninio\n(scroll down to the ping section to copy my email)',
+    sudo:'Nice try. This incident will be reported to the NOC.',
+    ls:'about  career  skills  github  contact',
+    exit:'Connection to niobyte.dev closed. (Just kidding, you\'re still here.)'
+  };
+  var alias={'show ver':'show version','sh ver':'show version','show ip int brief':'show ip interface brief','sh ip int br':'show ip interface brief','skills':'show skills','ping':'ping luban','?':'help','about':'show version','career':'traceroute career','traceroute':'traceroute career','email':'contact'};
+  function esc(t){return t.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+  function print(cmd,res){
+    var d=document.createElement('div');d.className='cmd';d.innerHTML='<b>guest@niobyte:~$</b> '+esc(cmd);out.appendChild(d);
+    if(res!==null){var r=document.createElement('div');r.className='res';r.innerHTML=res;out.appendChild(r);}
+    out.scrollTop=out.scrollHeight;
+  }
+  function run(raw){
+    var c=raw.trim().replace(/\s+/g,' ').toLowerCase();
+    if(!c)return;
+    hist.push(raw);hi=hist.length;
+    if(c==='clear'||c==='cls'){out.innerHTML='';return;}
+    if(c.indexOf('sudo')===0)c='sudo';
+    c=alias[c]||c;
+    print(raw,C[c]||('% Invalid input detected: <span class="am">'+esc(raw.trim())+'</span>\nType <span class="hl">help</span> to see available commands.'));
+  }
+  form.addEventListener('submit',function(e){e.preventDefault();run(inp.value);inp.value='';});
+  inp.addEventListener('keydown',function(e){
+    if(e.key==='ArrowUp'&&hist.length){e.preventDefault();hi=Math.max(0,hi-1);inp.value=hist[hi];}
+    else if(e.key==='ArrowDown'&&hist.length){e.preventDefault();hi=Math.min(hist.length,hi+1);inp.value=hist[hi]||'';}
+  });
+  document.querySelectorAll('.quick button').forEach(function(b){b.addEventListener('click',function(){run(b.dataset.c);});});
+  out.parentNode.addEventListener('click',function(e){if(e.target.tagName!=='A'&&!getSelection().toString())inp.focus({preventScroll:true});});
+  var w=document.createElement('div');w.className='res';w.innerHTML='Welcome to <span class="hl">NioByte.dev</span>. Last login: from the internet.\nType <span class="hl">help</span> for commands, or tap one below.';out.appendChild(w);
+  print('whoami',C.whoami);
 })();
 </script>
 </body>
