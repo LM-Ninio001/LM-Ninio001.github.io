@@ -87,6 +87,16 @@ nav ul a:hover{color:var(--accent)}
 .hop.dest .ms{color:var(--ok)}
 @media (max-width:560px){.hop{grid-template-columns:32px minmax(0,1fr)}.hop .ms{grid-column:2}}
 
+/* Core competencies */
+.caps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.cap-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px;display:grid;gap:14px;align-content:start}
+.cap-k{display:block;font:12px var(--mono);color:var(--accent);letter-spacing:.04em}
+.cap-card h3{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:20px;margin:2px 0 0}
+.cap-card ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.cap-card li{font-size:15px;padding-left:18px;position:relative}
+.cap-card li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:1.5px;background:var(--accent)}
+@media (max-width:640px){.caps{grid-template-columns:1fr}}
+
 /* OSI stack */
 .osi{display:grid;gap:6px}
 .layer{display:grid;grid-template-columns:64px 150px minmax(0,1fr);gap:16px;align-items:center;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
@@ -147,7 +157,7 @@ footer{font:12px var(--mono);color:var(--muted);display:flex;justify-content:spa
 <main class="wrap">
   <nav>
     <a class="brand" href="#top"><span class="leds"><i></i><i></i><i></i></span>NioByte.dev</a>
-    <ul><li><a href="#about">show version</a></li><li><a href="#console">console</a></li><li><a href="#path">traceroute</a></li><li><a href="#stack">stack</a></li><li><a href="#lab">github</a></li><li><a href="#contact">ping</a></li></ul>
+    <ul><li><a href="#about">show version</a></li><li><a href="#console">console</a></li><li><a href="#path">traceroute</a></li><li><a href="#stack">skills</a></li><li><a href="#lab">github</a></li><li><a href="#contact">ping</a></li></ul>
   </nav>
 
   <header class="hero" id="top">
@@ -174,7 +184,7 @@ footer{font:12px var(--mono);color:var(--muted);display:flex;justify-content:spa
       <p class="prompt"><b>niobyte#</b> show version</p>
       <h2>Network-minded, people-tested</h2>
       <p>I hold a Bachelor of Information Technology from CQUniversity Sydney, and I spend my spare time on networking: subnetting, routing, switching and building things in the lab.</p>
-      <p>My day job is Duty Manager at a busy rental branch. That's where I learned to troubleshoot under pressure and explain technical problems to people who just want them fixed.</p>
+      <p>I've worked in customer-facing support roles in Bangladesh and Sydney. That's where I learned to troubleshoot under pressure and explain technical problems to people who just want them fixed.</p>
     </div>
     <div class="console">
       <div class="bar"><i></i><i></i><i></i>&nbsp; console 9600 8N1</div>
@@ -184,7 +194,7 @@ footer{font:12px var(--mono);color:var(--muted);display:flex;justify-content:spa
 <span class="k">Firmware       :</span> <span class="v">B.IT, CQUniversity</span>
 <span class="k">Uptime         :</span> <span class="v">always learning</span>
 <span class="k">Interfaces     :</span> <span class="v">3 up, 0 down</span>
-<span class="k">Looking for    :</span> <span class="am">network / IT support roles</span></pre>
+<span class="k">Looking for    :</span> <span class="am">network engineer roles</span></pre>
     </div>
   </section>
 
@@ -214,22 +224,19 @@ footer{font:12px var(--mono);color:var(--muted);display:flex;justify-content:spa
     <ol class="trace">
       <li class="hop"><span class="n">1</span><div><h3>HDC Specialist / Online Support</h3><div class="org">Star Tech · Bangladesh</div><p>Supported online customers and home-delivery orders for one of the country's largest tech retailers. First taste of solving tech problems for real users.</p></div><span class="ms">hop 1</span></li>
       <li class="hop"><span class="n">2</span><div><h3>Bachelor of Information Technology</h3><div class="org">CQUniversity · Sydney</div><p>Networking, systems and software fundamentals.</p></div><span class="ms">hop 2</span></li>
-      <li class="hop"><span class="n">3</span><div><h3>Rental Agent / Customer Support</h3><div class="org">Avis Budget Group · North Sydney</div><p>Front-line support on booking and fleet systems; promoted from here.</p></div><span class="ms">hop 3</span></li>
-      <li class="hop"><span class="n">4</span><div><h3>Duty Manager</h3><div class="org">Avis Budget Group · North Sydney</div><p>Run daily branch operations, lead the team and resolve escalations when systems or schedules break.</p></div><span class="ms">current</span></li>
-      <li class="hop dest"><span class="n">5</span><div><h3>Next: Network / IT Engineer</h3><div class="org">destination · routing in progress</div><p>Moving my career onto the network side full time.</p></div><span class="ms">* * * reachable</span></li>
+      <li class="hop"><span class="n">3</span><div><h3>Rental Agent / Customer Support</h3><div class="org">Avis Budget Group · North Sydney</div><p>Front-line support on booking and fleet systems, solving problems for customers in real time.</p></div><span class="ms">hop 3</span></li>
+      <li class="hop dest"><span class="n">4</span><div><h3>Next: Network Engineer</h3><div class="org">destination · routing in progress</div><p>Moving my career onto the network side full time.</p></div><span class="ms">* * * reachable</span></li>
     </ol>
   </section>
 
   <section id="stack">
-    <p class="prompt"><b>niobyte#</b> show skills by osi-layer</p>
-    <h2>Skills, layer by layer</h2>
-    <div class="osi">
-      <div class="layer"><span class="num">L7</span><span class="name">Application</span><div class="chips"><span class="chip">DNS</span><span class="chip">DHCP</span><span class="chip">HTTP/S</span><span class="chip">Help desk</span></div></div>
-      <div class="layer"><span class="num">L4</span><span class="name">Transport</span><div class="chips"><span class="chip">TCP / UDP</span><span class="chip">Ports</span><span class="chip">Firewall rules</span></div></div>
-      <div class="layer"><span class="num">L3</span><span class="name">Network</span><div class="chips"><span class="chip">IPv4 subnetting</span><span class="chip">Static routing</span><span class="chip">OSPF</span><span class="chip">ping / tracert</span></div></div>
-      <div class="layer"><span class="num">L2</span><span class="name">Data Link</span><div class="chips"><span class="chip">VLANs</span><span class="chip">Switching</span><span class="chip">STP</span><span class="chip">ARP</span></div></div>
-      <div class="layer"><span class="num">L1</span><span class="name">Physical</span><div class="chips"><span class="chip">Cabling</span><span class="chip">Wi-Fi</span><span class="chip">Hardware setup</span></div></div>
-      <div class="layer"><span class="num">L8</span><span class="name">People</span><div class="chips"><span class="chip">Team lead</span><span class="chip">Escalations</span><span class="chip">Clear explaining</span></div></div>
+    <p class="prompt"><b>niobyte#</b> show running-config | section capabilities</p>
+    <h2>Core competencies</h2>
+    <div class="caps">
+      <div class="cap-card"><div><span class="cap-k">interface routing-switching</span><h3>Routing &amp; Switching</h3></div><ul><li>VLAN design and inter-VLAN routing</li><li>OSPF and static routing</li><li>STP and Layer 2 redundancy</li><li>IPv4 addressing and subnetting</li></ul></div>
+      <div class="cap-card"><div><span class="cap-k">interface security</span><h3>Network Security</h3></div><ul><li>ACLs and firewall rules</li><li>Network segmentation</li><li>Port security and device hardening on Cisco IOS</li><li>Least-privilege access design</li></ul></div>
+      <div class="cap-card"><div><span class="cap-k">interface services</span><h3>Services &amp; Infrastructure</h3></div><ul><li>DHCP, DNS and NAT</li><li>End-to-end connectivity troubleshooting</li><li>Network documentation: IP plans and topologies</li><li>Enterprise network operations</li></ul></div>
+      <div class="cap-card"><div><span class="cap-k">interface tools</span><h3>Tools &amp; Platforms</h3></div><ul><li>Cisco IOS CLI</li><li>Cisco Packet Tracer</li><li>VirtualBox labs</li><li>Windows and Linux</li></ul></div>
     </div>
   </section>
 
@@ -345,12 +352,12 @@ document.getElementById('copy').addEventListener('click',function(){
   var out=document.getElementById('tout'),form=document.getElementById('tform'),inp=document.getElementById('tcmd');
   var hist=[],hi=0;
   var C={
-    help:'Available commands:\n  <span class="hl">whoami</span>                    who runs this network\n  <span class="hl">show version</span>              system info\n  <span class="hl">show ip interface brief</span>   what I work on\n  <span class="hl">traceroute career</span>         my path so far\n  <span class="hl">show skills</span>               skills by OSI layer\n  <span class="hl">github</span>                    my GitHub\n  <span class="hl">ping luban</span>                check if I\'m reachable\n  <span class="hl">contact</span>                   how to reach me\n  <span class="hl">clear</span>                     clear the screen',
+    help:'Available commands:\n  <span class="hl">whoami</span>                    who runs this network\n  <span class="hl">show version</span>              system info\n  <span class="hl">show ip interface brief</span>   what I work on\n  <span class="hl">traceroute career</span>         my path so far\n  <span class="hl">show skills</span>               core competencies\n  <span class="hl">github</span>                    my GitHub\n  <span class="hl">ping luban</span>                check if I\'m reachable\n  <span class="hl">contact</span>                   how to reach me\n  <span class="hl">clear</span>                     clear the screen',
     whoami:'Luban Mahi Ninio, aka <span class="hl">NioByte</span>\nNetwork enthusiast and IT graduate (CQUniversity, Sydney).\nFocus: networking, cybersecurity, enterprise systems.',
-    'show version':'NioByte OS, Version 2026.10 (Sydney)\nOperator    : Luban Mahi Ninio\nFirmware    : Bachelor of IT, CQUniversity\nDay job     : Duty Manager, Avis Budget Group\nUptime      : always learning\nSeeking     : <span class="am">network / IT support roles</span>',
-    'show ip interface brief':'Interface   Description            Status   Protocol\neth0        networking             <span class="okc">up</span>       <span class="okc">up</span>\neth1        cybersecurity          <span class="okc">up</span>       <span class="okc">up</span>\neth2        enterprise systems     <span class="okc">up</span>       <span class="okc">up</span>\nlo0         people skills          <span class="okc">up</span>       <span class="okc">up</span>',
-    'traceroute career':'traceroute to network-engineer, 30 hops max\n 1  star-tech.bd          online support\n 2  cquniversity.syd      bachelor of IT\n 3  avis.north-sydney     rental / customer support\n 4  avis.north-sydney     duty manager  <span class="am">(current)</span>\n 5  network-engineer      <span class="okc">* * * routing in progress</span>',
-    'show skills':'L7  DNS, DHCP, HTTP/S, help desk\nL4  TCP/UDP, ports, firewall rules\nL3  IPv4 subnetting, static routing, OSPF\nL2  VLANs, switching, STP, ARP\nL1  cabling, Wi-Fi, hardware setup\nL8  team lead, escalations, clear explaining',
+    'show version':'NioByte OS, Version 2026.10 (Sydney)\nOperator    : Luban Mahi Ninio\nFirmware    : Bachelor of IT, CQUniversity\nUptime      : always learning\nSeeking     : <span class="am">network engineer roles</span>',
+    'show ip interface brief':'Interface   Description            Status   Protocol\neth0        networking             <span class="okc">up</span>       <span class="okc">up</span>\neth1        cybersecurity          <span class="okc">up</span>       <span class="okc">up</span>\neth2        enterprise systems     <span class="okc">up</span>       <span class="okc">up</span>\nlo0         troubleshooting        <span class="okc">up</span>       <span class="okc">up</span>',
+    'traceroute career':'traceroute to network-engineer, 30 hops max\n 1  star-tech.bd          online support\n 2  cquniversity.syd      bachelor of IT\n 3  avis.north-sydney     rental / customer support\n 4  network-engineer      <span class="okc">* * * routing in progress</span>',
+    'show skills':'routing/switching : VLANs, inter-VLAN routing, OSPF, static routing, STP\nsecurity          : ACLs, firewall rules, segmentation, IOS hardening\nservices          : DHCP, DNS, NAT, IPv4 subnetting\ntools             : Cisco IOS, Packet Tracer, VirtualBox, Windows/Linux',
     github:'github0 is up, line protocol is up\n  handle: <a href="https://github.com/LM-Ninio001" target="_blank" rel="noopener">@LM-Ninio001</a>',
     'ping luban':'PING luban (niobyte.dev): 56 data bytes\n64 bytes from luban: icmp_seq=0 ttl=64 time=fast\n64 bytes from luban: icmp_seq=1 ttl=64 time=friendly\n--- <span class="okc">0% packet loss</span> ---',
     contact:'email    : <span class="hl">lubanmahi08@gmail.com</span>\ngithub   : <a href="https://github.com/LM-Ninio001" target="_blank" rel="noopener">github.com/LM-Ninio001</a>\nlinkedin : Luban Mahi Ninio\n(scroll down to the ping section to copy my email)',
