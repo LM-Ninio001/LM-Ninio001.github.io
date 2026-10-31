@@ -148,6 +148,8 @@ a.repo:hover{border-color:var(--accent)}
 /* Featured project */
 .feature{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;background:var(--surface);border:1px solid var(--accent);border-radius:16px;padding:28px;margin-bottom:20px}
 .f-main{display:grid;gap:14px;align-content:start;min-width:0}
+.f-link{font:14px var(--mono);color:var(--muted);overflow-wrap:anywhere}
+.f-link a{font-weight:600}
 .f-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .feature h3{font-family:var(--display);font-stretch:116%;font-weight:800;font-size:clamp(24px,3.4vw,32px);line-height:1.05;margin:0}
 .feature p{margin:0;max-width:62ch}
@@ -263,7 +265,8 @@ footer{font:12px var(--mono);color:var(--muted);display:flex;justify-content:spa
         <h3>Password Strength Visualizer</h3>
         <p>A private, browser-only app that rates a password as you type and explains why. It estimates entropy, detects patterns attackers exploit (common passwords, keyboard walks, dates, leetspeak) and shows time-to-crack for online and offline attacks. An optional leak check uses the Have I Been Pwned k-anonymity API, so only 5 characters of a SHA-1 hash ever leave the browser.</p>
         <div class="chips"><span class="chip">JavaScript (ES modules)</span><span class="chip">Web Crypto API</span><span class="chip">HIBP k-anonymity</span><span class="chip">Content Security Policy</span><span class="chip">GitHub Actions CI</span></div>
-        <div class="actions"><a class="btn" href="https://lm-ninio001.github.io/password-strength-visualizer/" target="_blank" rel="noopener">./live-demo</a><a class="btn ghost" href="https://github.com/LM-Ninio001/password-strength-visualizer" target="_blank" rel="noopener">view source</a></div>
+        <p class="f-link">Live demo: <a href="https://lm-ninio001.github.io/password-strength-visualizer/" target="_blank" rel="noopener">lm-ninio001.github.io/password-strength-visualizer</a></p>
+        <div class="actions"><a class="btn" href="https://lm-ninio001.github.io/password-strength-visualizer/" target="_blank" rel="noopener">open live demo</a><a class="btn ghost" href="https://github.com/LM-Ninio001/password-strength-visualizer" target="_blank" rel="noopener">view source</a></div>
       </div>
       <dl class="f-stats">
         <div><dt>tests passing</dt><dd>57</dd></div>
@@ -294,10 +297,10 @@ footer{font:12px var(--mono);color:var(--muted);display:flex;justify-content:spa
           <p>An enterprise network built and documented end to end: VLAN segmentation, routing, core services and security hardening.</p>
           <div class="meta"><span>public</span><span>first commit pending</span><span class="go">view repo →</span></div>
         </a>
-        <a class="repo" href="https://github.com/LM-Ninio001/password-strength-visualizer" target="_blank" rel="noopener">
+        <a class="repo" href="https://lm-ninio001.github.io/password-strength-visualizer/" target="_blank" rel="noopener">
           <div class="rtop"><span class="rname">password-strength-visualizer</span><span class="pill ok">live</span></div>
           <p>Entropy, pattern detection, crack-time estimates and a private leak check, all in the browser.</p>
-          <div class="meta"><span>JavaScript</span><span>MIT</span><span>57 tests</span><span class="go">view repo →</span></div>
+          <div class="meta"><span>JavaScript</span><span>MIT</span><span>57 tests</span><span class="go">live demo →</span></div>
         </a>
       </div>
     </div>
